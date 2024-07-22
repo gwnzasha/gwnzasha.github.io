@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<h2>Hello!</h2>
+<p>I'm Gwenith Zasha Marie L. Calago</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'About me')">About me</button>
+  <button class="tablinks" onclick="openCity(event, 'Favorites')">Favorites</button>
+  <button class="tablinks" onclick="openCity(event, 'School Project')">School Project</button>
+</div>
+
+<div id="About me" class="tabcontent">
+  <h3>About me</h3>
+  <p>My name is Gwenith, but you can call me Gwen for short.</p>
+  <p>I'm 19 years old and currently living in Davao City</p>
+  <p>I watch movies and reading manga during my past time.</p>
+</div>
+
+<div id="Favorites" class="tabcontent">
+  <h3>Favorites</h3>
+  <p>I like reading manga, playing mobile games, and watch movies or series.</p> 
+</div>
+
+<div id="School Project" class="tabcontent">
+  <h3>School Project</h3>
+  <p>I actually proposed a web page for our school site during senior high school.</p>
+  <p> It was also an individual project in our strand. My proposed web was picked, but unfortunately it was cancelled because i didnt have time to finalize the back-end. </p>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    </script>
+       
+   
+</body>
+</html> 
