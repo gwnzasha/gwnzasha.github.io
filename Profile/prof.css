@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px; /* Add some padding to ensure content is not touching the edges */
+    margin: 0; /* Ensure margin does not affect scrolling */
+    overflow: auto; /* Allow vertical scrolling */
+    position: relative; /* Position needed for pseudo-element */
+    background-color: rgb(0, 0, 0); /* Fallback color if image fails to load */
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('download.jfif') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px); /* Adjust the blur effect */
+    z-index: -1; /* Place behind all other content */
+}
+
+.spotify-embed {
+    width: 100%; /* Make the width of the embed fit the container */
+    max-width: 300px; /* Limit the maximum width */
+    height: 80px; /* Adjust height as needed */
+    margin: 1em auto; /* Center the iframe and add spacing */
+}
+
+.container {
+    width: 100%;
+    max-width: 25em; /* Adjusted width */
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    border-radius: 1em;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    box-shadow: 0 0.6em 1.8em rgba(0, 0, 0, 0.2); /* Added shadow */
+}
+
+.image {
+    padding: 2em 0; /* Adjusted padding */
+    background-image: linear-gradient(60deg, #1a3c1d, #4a5d3c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image img {
+    width: 10em; /* Adjust size as needed */
+    height: 10em; /* Adjust size as needed */
+    border-radius: 50%;
+    box-shadow: 0 0.6em 1.8em rgba(0, 0, 0, 0.2); /* Added shadow */
+    object-fit: cover;
+}
+
+.content {
+    color: #565656;
+    padding: 2em; /* Adjusted padding */
+    text-align: left; /* Align text to left */
+}
+
+.name {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-align: center; /* Center name */
+}
+
+.username {
+    font-size: 1em;
+    color: #9e9e9e;
+    text-align: center; /* Center username */
+}
+
+.deets {
+    margin: 1em 0; /* Adjusted margin */
+}
+
+h5 {
+    margin-bottom: 0.5em; 
+}
+
+ul {
+    list-style: disc; 
+    margin-left: 1.5em;
+    padding-left: 0; 
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 1em; /* Add gap between icons */
+    margin: 1.5em 0;
+}
+
+a {
+    text-decoration: none;
+    color: #565656;
+    transition: all 0.3s;
+    font-size: 2em;
+}
+
+.insta:hover {
+    color: rgb(255, 70, 101);
+    transform: scale(1.2); 
+}
+
+.git:hover {
+    color: rgb(0, 0, 0);
+    transform: scale(1.2); 
+}
+
+.facebook:hover {
+    color: rgb(4, 0, 255);
+    transform: scale(1.2); 
+}
+
+.details {
+    margin-bottom: 1.8em;
+    text-align: center; 
+}
+
+.effect {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: white; 
+    text-transform: capitalize;
+    width: 100%;
+    background-image: linear-gradient(60deg, #1a3c1d, #4a5d3c);
+    font-size: 1.2em;
+    padding: 1em 3em;
+    border-radius: 5em;
+    overflow: hidden;
+    transition: all 0.3s; /* Add transition for hover effect */
+}
+
+.effect.effect-4:before {
+    content: "\f2b6";
+    font-family: FontAwesome;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.8em;
+    transform: scale(0, 1);
+    transition: transform 0.3s; /* Add transition for hover effect */
+}
+
+.effect.effect-4:hover {
+    text-indent: -9999px;
+}
+
+.effect.effect-4:hover:before {
+    transform: scale(1, 1);
+    text-indent: 0;
+}
+
+
+/* Minimalistic Toggle Button Styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em; /* Adjust size as needed */
+    cursor: pointer;
+    transition: color 0.3s;
+    color: var(--text-color);
+    position: fixed;
+    top: 20px; /* Adjust position as needed */
+    right: 20px; /* Adjust position as needed */
+    z-index: 10; /* Ensure it's on top of other content */
+}
+
+.theme-toggle:focus {
+    outline: none;
+}
+
+.theme-toggle.light-mode {
+    color: #FFD700; /* Gold for light mode */
+}
+
+.theme-toggle.dark-mode {
+    color: #1E90FF; /* Blue for dark mode */
+}
