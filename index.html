@@ -87,7 +87,7 @@ body {
     align-items: flex-start;
     padding: 20px; 
     margin: 0; 
-    overflow: auto; /* Allow vertical scrolling */
+    overflow: auto; 
     position: relative; 
     background-color: rgb(0, 0, 0);
 }
@@ -158,12 +158,9 @@ body::before {
     text-align: center;
 }
 
+
+
 .deets {
-    margin: 1em 0; 
-}
- #prof{
-    cursor: pointer;
-    text-align: center;
     margin: 1em 0; 
 }
 
@@ -180,7 +177,7 @@ ul {
 .links {
     display: flex;
     justify-content: center;
-    gap: 1em; /* Add gap between icons */
+    gap: 1em; 
     margin: 1.5em 0;
 }
 
@@ -208,6 +205,7 @@ a {
 
 .details {
     margin-bottom: 1.8em;
+    font-size: 4rem;
     text-align: center; 
 }
 
@@ -228,23 +226,22 @@ a {
 }
 
 .effect.effect-4:before {
-    content: "\f2b6";
-    font-family: FontAwesome;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 1.8em;
-    transform: scale(0, 1);
-    transition: transform 0.3s;
+    display: inline-block;
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: transparent;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: white;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    border: 2px solid #4a5d3c;
+    transition: 1.3s ease;
+    cursor: pointer;
 }
 
-.effect.effect-4:hover {
+/*.effect.effect-4:hover {
     text-indent: -9999px;
 }
 
@@ -252,7 +249,14 @@ a {
     transform: scale(1, 1);
     text-indent: 0;
 }
+*/
 
+.effect.effect-4:hover{
+    transform: scale3d(1.03);
+    background-color: #4a5d3c;
+    color: black;
+    box-shadow: 0 0 25px #4a5d3c;
+}
 
 /* Minimalistic Toggle Button Styles */
 .theme-toggle {
@@ -278,24 +282,6 @@ a {
 
 .theme-toggle.dark-mode {
     color: #1E90FF;
-}
-
-/* Minimalistic Toggle Button Styles */
-.theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: color 0.3s;
-    color: var(--text-color);
-    position: fixed;
-    top: 20px;
-    right: 20px; 
-    z-index: 10; 
-}
-
-.theme-toggle:focus {
-    outline: none;
 }
 
 .theme-toggle.light-mode::before {
@@ -370,10 +356,10 @@ a {
                    title="GFG_instagram">
                     <i class="fab fa-instagram-square"></i> </a>
                 </div>
-                 <a href="Fashion/fashion.html" target="_blank"><h6 class="details">
+                 <a class="effect effect-4" href="Fashion/fashion.html" target="_blank"><h6 class="details">
                   Fashion blog
                </h6></a> 
-                <a href="Healthy.html" target="_blank" ><h6 id="prof">Healthy Recipe</h6></a>
+                <a class="effect effect-4"href="Healthy.html" target="_blank" ><h6 id="prof">Healthy Recipe</h6></a>
 
                 <a class="effect effect-4" href="Main.html" target="_blank">
                     More
