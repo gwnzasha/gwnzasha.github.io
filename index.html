@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
+    
 * {
     margin: 0;
     padding: 0;
@@ -240,6 +241,17 @@ a {
     transition: 1.3s ease;
     cursor: pointer;
 }
+
+/*.effect.effect-4:hover {
+    text-indent: -9999px;
+}
+
+.effect.effect-4:hover:before {
+    transform: scale(1, 1);
+    text-indent: 0;
+}
+*/
+
 .effect.effect-4:hover{
     transform: scale3d(1.03);
     background-color: #4a5d3c;
@@ -363,15 +375,15 @@ a {
                 crossorigin="anonymous">
         </script>
 
-<script> document.getElementById('theme-toggle').addEventListener('click', () => {
+<script> 
+    document.getElementById('theme-toggle').addEventListener('click', () => {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', newTheme);
   document.getElementById('theme-toggle').classList.toggle('dark-mode', newTheme === 'dark');
   document.getElementById('theme-toggle').classList.toggle('light-mode', newTheme === 'light');
 });
-</script>
-
+</script>    
     
 </body>
-</html>s
+</html>
