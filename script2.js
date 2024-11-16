@@ -34,8 +34,10 @@ followBtn.addEventListener('click', function() {
 
 document.getElementById('anime-item').addEventListener('click', async function() {
     try {
-        const animeTitleElement = document.getElementById('anime-title');
-        const animeItemInfo = document.querySelector('.gallery-item-info');
+        const modal = document.getElementById('anime-modal');
+        const modalTitle = document.getElementById('modal-anime-title');
+        const modalSynopsis = document.getElementById('modal-anime-synopsis');
+        const modalImage = document.getElementById('modal-anime-image'); 
 
         const response = await fetch('https://api.jikan.moe/v4/random/anime');
         if (!response.ok) throw new Error('API request failed');
@@ -43,37 +45,34 @@ document.getElementById('anime-item').addEventListener('click', async function()
         const data = await response.json();
         const anime = data.data;
 
-        animeTitleElement.textContent = anime.title;
-        
-        const animeSynopsis = document.createElement('p');
-        animeSynopsis.textContent = `Synopsis: ${anime.synopsis}`;
-        animeItemInfo.appendChild(animeSynopsis);
+        console.log('Fetched Anime Data:', data);
 
-        console.log(`Fetched Anime: ${anime.title}`);
+        // anime data title, synopsis, and image
+        if (anime && anime.title && anime.synopsis && anime.images && anime.images.jpg) {
+
+            modalTitle.textContent = anime.title;
+            modalSynopsis.textContent = `Synopsis: ${anime.synopsis}`;
+            modalImage.src = anime.images.jpg.image_url; 
+
+            modal.style.display = 'block';
+        } else {
+            console.error('Anime data is missing title, synopsis, or image:', anime);
+        }
     } catch (error) {
         console.error('Error fetching anime data:', error);
     }
 });
 
-document.getElementById('anime-item').addEventListener('click', async function() {
-    try {
-        const animeTitleElement = document.getElementById('anime-title');
-        const animeItemInfo = document.querySelector('.gallery-item-info');
+document.getElementById('close-modal').addEventListener('click', function() {
+    const modal = document.getElementById('anime-modal');
+    modal.style.display = 'none';
+});
 
-        const response = await fetch('https://api.jikan.moe/v4/random/anime');
-        if (!response.ok) throw new Error('API request failed');
-        
-        const data = await response.json();
-        const anime = data.data;
-
-        animeTitleElement.textContent = anime.title;
-        
-        const animeSynopsis = document.createElement('p');
-        animeSynopsis.textContent = `Synopsis: ${anime.synopsis}`;
-        animeItemInfo.appendChild(animeSynopsis);
-
-        console.log(`Fetched Anime: ${anime.title}`);
-    } catch (error) {
-        console.error('Error fetching anime data:', error);
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('anime-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
 });
+
+
