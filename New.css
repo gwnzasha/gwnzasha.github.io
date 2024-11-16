@@ -487,10 +487,48 @@ h2 {
 }
 
 
+footer {
+    position: fixed;
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.188), rgba(69, 81, 77, 0.248)); 
+    color: #fff; 
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+}
 
+body:not(.dark-mode) footer {
+    color: #000; 
+}
+
+body:not(.dark-mode) footer .social-icon {
+    color: #000; 
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-icon {
+    font-size: 1.8rem;
+    color: #fff; 
+    margin: 0 0.8rem;
+    text-decoration: none;
+}
+
+
+.social-icon:hover {
+    color: #ff6347; 
+}
 
 /* Media Query */
-
 @media screen and (max-width: 40rem) {
     .profile {
         display: flex;
@@ -640,49 +678,31 @@ h2 {
     }
 }
 
-p{
-    align-self: start;
-}
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        flex-direction: column; 
+        width: 90%; 
+    }
 
-footer {
-    position: fixed;
-    bottom: 0; 
-    left: 0; 
-    right: 0;
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.188), rgba(69, 81, 77, 0.248)); 
-    color: #fff; 
-    text-align: center;
-    padding: 1rem 0;
-    margin: 0;
-}
+    .modal-anime-image {
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0 auto 10px; 
+    }
 
-body:not(.dark-mode) footer {
-    color: #000; 
-}
+    .modal-anime-title {
+        width: 100%;
+        text-align: center;
+    }
 
-body:not(.dark-mode) footer .social-icon {
-    color: #000; 
-}
+    .modal-anime-title h2 {
+        font-size: 1.5em; 
+    }
 
-.footer-content p {
-    margin: 0;
-    font-size: 1.4rem;
-}
-
-.social-links {
-    margin-top: 1rem;
-}
-
-.social-icon {
-    font-size: 1.8rem;
-    color: #fff; 
-    margin: 0 0.8rem;
-    text-decoration: none;
-}
-
-
-.social-icon:hover {
-    color: #ff6347; 
+    .modal-anime-synopsis p {
+        font-size: 16px; 
+        text-align: justify;
+    }
 }
 
 @media screen and (max-width: 40rem) {
@@ -690,3 +710,8 @@ body:not(.dark-mode) footer .social-icon {
         font-size: 1.5rem;
     }
 }
+
+p{
+    align-self: start;
+}
+
