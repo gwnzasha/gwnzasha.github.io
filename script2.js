@@ -47,14 +47,28 @@ document.getElementById('anime-item').addEventListener('click', async function()
 
         console.log('Fetched Anime Data:', data);
 
-        // anime data title, synopsis, and image
-        if (anime && anime.title && anime.synopsis && anime.images && anime.images.jpg) {
+        //inappropriate keywords
+        const inappropriateKeywords = ['hentai', 'adult', 'ecchi', 'porn', 'explicit', 'ntr', 'harem', 'sex', 'rape', 'harem', 'cuckold', 'netorare', 'anal'];
 
+        const title = anime.title ? anime.title.toLowerCase() : '';
+        const synopsis = anime.synopsis ? anime.synopsis.toLowerCase() : '';
+
+        const isInappropriate = inappropriateKeywords.some(keyword =>
+            title.includes(keyword) || synopsis.includes(keyword)
+        );
+
+        if (isInappropriate) {
+            console.log('Inappropriate content detected. Skipping display.');
+            modal.style.display = 'none'; 
+            return; 
+        }
+
+        if (anime && anime.title && anime.synopsis && anime.images && anime.images.jpg) {
             modalTitle.textContent = anime.title;
             modalSynopsis.textContent = `Synopsis: ${anime.synopsis}`;
             modalImage.src = anime.images.jpg.image_url; 
 
-            modal.style.display = 'block';
+            modal.style.display = 'block'; 
         } else {
             console.error('Anime data is missing title, synopsis, or image:', anime);
         }
@@ -74,5 +88,3 @@ window.addEventListener('click', function(event) {
         modal.style.display = 'none';
     }
 });
-
-
